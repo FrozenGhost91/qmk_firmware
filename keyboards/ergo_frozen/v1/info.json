@@ -13,8 +13,8 @@
         "nkro": true
     },
     "matrix_pins": {
-        "cols": ["C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2", "C2"],
-        "rows": ["D1", "D1", "D1", "D1", "D1", "D1", "D1"]
+        "cols": ["GP7", "GP8", "GP9", "GP10", "GP11", "GP14", "GP15", "GP15", "GP15", "GP15", "GP15", "GP15", "GP15", "GP15", "GP15", "GP15", "GP15", "GP15", "GP15"],
+        "rows": ["GP2", "GP3", "GP4", "GP5", "GP6", "GP7", "GP8"]
     },
     "processor": "RP2040",
     "url": "",
