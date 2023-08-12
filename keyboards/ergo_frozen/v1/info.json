@@ -1,0 +1,21 @@
+{
+    "keyboard_name": "Ergo-Frozen V1",
+    "manufacturer": "none",
+    "url": "https://qmk.fm/keyboards/",
+    "maintainer": "FrozenGhost91",
+    
+    "usb": {
+      "vid": "",
+      "pid": "",
+      "device_version": "0.0.1"
+    },
+    "debounce": "5",
+    "diode_direction": "",
+    "layout_aliases": ,
+    "matrix_pins": {
+        "cols": [""],
+        "rows": [""]
+    },
+    "rgblight":,
+    "development_board": "Raspberry Pico",
+}
