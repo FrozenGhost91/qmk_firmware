@@ -2,7 +2,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 #include QMK_KEYBOARD_H
-
+#include <stdio.h>
+#include "analog.h"
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     /*
      * ┌──────┬───┬───┬───┬───┬───┬───┐                     ┌───┬───┬───┬───┬───┬───┬──────┐
@@ -45,7 +46,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 
-
+/*
 static void render_logo(void) {
     static const char PROGMEM qmk_logo[] = {
         0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8A, 0x8B, 0x8C, 0x8D, 0x8E, 0x8F, 0x90, 0x91, 0x92, 0x93, 0x94,
@@ -54,18 +55,43 @@ static void render_logo(void) {
     };
 
     oled_write_P(qmk_logo, false);
-}
+}*/
 
+/*after btn pressed*/
 bool oled_task_user(void) {
-    render_logo();
-    return false;
+  //render_logo();
+  ////test adc by pprinting adc value to oled
+  oled_write("Ergo-Frozen V1",true);
+  oled_advance_page(true);
+  oled_write("TEST",false);
+  oled_advance_page(true);
+  int adc=0;
+  adc= analogReadPin(GP26);
+  if(adc>0){
+    char str[12];
+    sprintf(str, "%d", adc);
+    oled_write(str,0);  
+  
+  }
+  else{
+    oled_write("0",0);
+  }
+  
+  return false;
 }
 
+
+/*keyboard_pre_init_user*/
 void keyboard_pre_init_user(void) {
   // Call the keyboard pre init code.
-
+  adcRPEnableTS(&ADCD1);
   // Set our LED pins as output
-  render_logo();
-  setPinOutput(GP28);
-  writePinHigh(GP28);
+  //render_logo();
+
+  //test adc by pprinting adc value to oled
+  oled_write("Ergo-Frozen V1",true);
+  oled_advance_page(true);
+  oled_write("TEST",false);
 }
+
+
